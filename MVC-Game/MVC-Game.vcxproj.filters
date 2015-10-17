@@ -18,72 +18,72 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConnectFourBoard.cpp">
+    <ClCompile Include="TicTacToe\TicTacToeBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConnectFourMove.cpp">
+    <ClCompile Include="TicTacToe\TicTacToeMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConnectFourView.cpp">
+    <ClCompile Include="TicTacToe\TicTacToeView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OthelloBoard.cpp">
+    <ClCompile Include="Othello\OthelloMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OthelloMove.cpp">
+    <ClCompile Include="ConnectFour\ConnectFourBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OthelloView.cpp">
+    <ClCompile Include="ConnectFour\ConnectFourMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TicTacToeBoard.cpp">
+    <ClCompile Include="ConnectFour\ConnectFourView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TicTacToeMove.cpp">
+    <ClCompile Include="Othello\OthelloBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TicTacToeView.cpp">
+    <ClCompile Include="Othello\OthelloView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConnectFourBoard.h">
+    <ClInclude Include="Header\TicTacToe\TicTacToeBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConnectFourMove.h">
+    <ClInclude Include="Header\TicTacToe\TicTacToeMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConnectFourView.h">
+    <ClInclude Include="Header\TicTacToe\TicTacToeView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameBoard.h">
+    <ClInclude Include="Header\ConnectFour\ConnectFourBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameExceptions.h">
+    <ClInclude Include="Header\ConnectFour\ConnectFourMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameMove.h">
+    <ClInclude Include="Header\ConnectFour\ConnectFourView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameView.h">
+    <ClInclude Include="Header\Game\GameBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OthelloBoard.h">
+    <ClInclude Include="Header\Game\GameExceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OthelloMove.h">
+    <ClInclude Include="Header\Game\GameMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OthelloView.h">
+    <ClInclude Include="Header\Game\GameView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TicTacToeBoard.h">
+    <ClInclude Include="Header\Othello\OthelloBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TicTacToeMove.h">
+    <ClInclude Include="Header\Othello\OthelloMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TicTacToeView.h">
+    <ClInclude Include="Header\Othello\OthelloView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

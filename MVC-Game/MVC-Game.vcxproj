@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Nick\Documents\Visual Studio 2015\Projects\MVC-Game\MVC-Game\Header\TicTacToe;C:\Users\Nick\Documents\Visual Studio 2015\Projects\MVC-Game\MVC-Game\Header\Othello;C:\Users\Nick\Documents\Visual Studio 2015\Projects\MVC-Game\MVC-Game\Header\Game;C:\Users\Nick\Documents\Visual Studio 2015\Projects\MVC-Game\MVC-Game\Header\ConnectFour;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,31 +147,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConnectFourBoard.cpp" />
-    <ClCompile Include="ConnectFourMove.cpp" />
-    <ClCompile Include="ConnectFourView.cpp" />
+    <ClCompile Include="ConnectFour\ConnectFourBoard.cpp" />
+    <ClCompile Include="ConnectFour\ConnectFourMove.cpp" />
+    <ClCompile Include="ConnectFour\ConnectFourView.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OthelloBoard.cpp" />
-    <ClCompile Include="OthelloMove.cpp" />
-    <ClCompile Include="OthelloView.cpp" />
-    <ClCompile Include="TicTacToeBoard.cpp" />
-    <ClCompile Include="TicTacToeMove.cpp" />
-    <ClCompile Include="TicTacToeView.cpp" />
+    <ClCompile Include="Othello\OthelloBoard.cpp" />
+    <ClCompile Include="Othello\OthelloMove.cpp" />
+    <ClCompile Include="Othello\OthelloView.cpp" />
+    <ClCompile Include="TicTacToe\TicTacToeBoard.cpp" />
+    <ClCompile Include="TicTacToe\TicTacToeMove.cpp" />
+    <ClCompile Include="TicTacToe\TicTacToeView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConnectFourBoard.h" />
-    <ClInclude Include="ConnectFourMove.h" />
-    <ClInclude Include="ConnectFourView.h" />
-    <ClInclude Include="GameBoard.h" />
-    <ClInclude Include="GameExceptions.h" />
-    <ClInclude Include="GameMove.h" />
-    <ClInclude Include="GameView.h" />
-    <ClInclude Include="OthelloBoard.h" />
-    <ClInclude Include="OthelloMove.h" />
-    <ClInclude Include="OthelloView.h" />
-    <ClInclude Include="TicTacToeBoard.h" />
-    <ClInclude Include="TicTacToeMove.h" />
-    <ClInclude Include="TicTacToeView.h" />
+    <ClInclude Include="Header\ConnectFour\ConnectFourBoard.h" />
+    <ClInclude Include="Header\ConnectFour\ConnectFourMove.h" />
+    <ClInclude Include="Header\ConnectFour\ConnectFourView.h" />
+    <ClInclude Include="Header\Game\GameBoard.h" />
+    <ClInclude Include="Header\Game\GameExceptions.h" />
+    <ClInclude Include="Header\Game\GameMove.h" />
+    <ClInclude Include="Header\Game\GameView.h" />
+    <ClInclude Include="Header\Othello\OthelloBoard.h" />
+    <ClInclude Include="Header\Othello\OthelloMove.h" />
+    <ClInclude Include="Header\Othello\OthelloView.h" />
+    <ClInclude Include="Header\TicTacToe\TicTacToeBoard.h" />
+    <ClInclude Include="Header\TicTacToe\TicTacToeMove.h" />
+    <ClInclude Include="Header\TicTacToe\TicTacToeView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
