@@ -13,3 +13,18 @@ The program then prompts the user for their move with an input pattern specific 
 input validation based on the possible moves.
 
 Once the game finishes, the user may play again or exit.
+
+
+# Examples
+
+Othello
+
+![othello](https://cloud.githubusercontent.com/assets/10593907/11891532/5272002c-a514-11e5-9024-1ef794c0b375.png)
+
+Connect Four
+
+![connectfour](https://cloud.githubusercontent.com/assets/10593907/11891533/52753116-a514-11e5-86c6-52f4dafd1e81.png)
+
+TicTacToe
+
+![tictactoe](https://cloud.githubusercontent.com/assets/10593907/11891534/5276c0ee-a514-11e5-8bdb-2aade361c998.png)
