@@ -5,9 +5,7 @@
 
 class GameView {
 private:
-   /*
-   Prints the View's member GameBoard to the ostream parameter.
-   */
+   // Prints the View's member GameBoard to the ostream parameter.
    virtual void PrintBoard(std::ostream &s) const = 0;
 
 

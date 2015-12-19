@@ -4,8 +4,7 @@
 #include "GameView.h"
 #include <iostream>
 
-// Same code as before; but now you just implement PrintBoard, and not
-// operator<<.
+
 class OthelloView : public GameView {
 private:
 	OthelloBoard *mOthelloBoard;

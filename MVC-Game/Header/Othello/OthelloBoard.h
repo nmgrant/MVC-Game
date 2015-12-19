@@ -42,10 +42,8 @@ public:
    */
    virtual void ApplyMove(GameMove *move);
    
-   /*
-   Undoes the last move applied to the board, restoring it to the state it was
-   in prior to the most recent move.
-   */
+   // Undoes the last move applied to the board, restoring it to the state it was
+   // in prior to the most recent move.
    virtual void UndoLastMove();
    
    /*
@@ -61,14 +59,14 @@ public:
 
    // Returns true if the game is finished.
    virtual bool IsFinished() const {
-      return mPassCount == 2;
+      return m_pass_count_ == 2;
    }
 
 private:
 	friend class OthelloView;
 
    // NOTE: we inherit mNextPlayer, mValue, and mHistory from GameBoard.
-   char mBoard[BOARD_SIZE][BOARD_SIZE];
-   int mPassCount;
+   char m_board_[BOARD_SIZE][BOARD_SIZE];
+   int m_pass_count_;
 };
 #endif

@@ -13,42 +13,38 @@ private:
    // OthelloBoard is a friend so it can access mRow and mCol.
 	friend class OthelloBoard;
 	
-   /*
-   A FlipSet tracks a direction and # of pieces that got flipped when this 
-   move was applied. See spec.
-   */
+   // A FlipSet tracks a direction and # of pieces that got flipped when this 
+   // move was applied.
    class FlipSet {
    public:
-      FlipSet(char sw, char row, char col) : switched(sw), rowDelta(row), 
-       colDelta(col) {}
+      FlipSet(char sw, char row, char col) : switched(sw), row_delta_(row), 
+       col_delta_(col) {}
 
       char switched;
-      char rowDelta, colDelta;
+      char row_delta_, col_delta_;
    };
    
-   int mRow, mCol;
-   std::vector<FlipSet> mFlips;
+   int m_row_, m_col_;
+   std::vector<FlipSet> m_flips_;
 
-   // KEEP THESE CONSTRUCTORS PRIVATE.
    // Default constructor: initializes this move as a PASS.
    OthelloMove();
-   /*
-   2-parameter constructor: initializes this move with the given 
-   row and column.
-   */
+   // 2-parameter constructor: initializes this move with the given 
+   // row and column.
    OthelloMove(int row, int col);
    
-   void AddFlipSet(FlipSet set) {mFlips.push_back(set);}
+   // Used to track pieces that were flipped upon a successful move
+   void AddFlipSet(FlipSet set) {m_flips_.push_back(set);}
 public:
-   static int mOnHeap;
+   static int m_on_heap_;
 
    static void* operator new(std::size_t sz){
-      mOnHeap++;
+      m_on_heap_++;
       return ::operator new(sz);
    }
 
       static void operator delete(void* ptr, std::size_t sz) {
-      mOnHeap--;
+      m_on_heap_--;
       ::operator delete(ptr);
    }
 
@@ -56,14 +52,11 @@ public:
    /*
    This assignment operator takes a string representation of an Othellomove
    and uses it to initialize the move. The string is in the format
-   (r, c); OR is the string "pass". [The user will not enter (-1,-1) to pass
-   anymore.]
+   (r, c); OR is the string "pass". 
    */
 	virtual GameMove& operator=(const std::string &);
 
-   /*
-   Compares two OthelloMove objects for equality.
-   */
+   // Compares two OthelloMove objects for equality.
    virtual bool Equals(const GameMove &other) const;
    
    // Converts the OthelloMove into a string representation, one that could be
@@ -72,7 +65,7 @@ public:
 
    // Returns true if the move represents a Pass.
    // TO DO: fill in this method.
-	inline bool IsPass() const {return mRow == -1 && mCol == -1;}
+	inline bool IsPass() const {return m_row_ == -1 && m_col_ == -1;}
 };
 
 #endif

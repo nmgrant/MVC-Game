@@ -42,10 +42,8 @@ public:
    */
    virtual void ApplyMove(GameMove *move);
    
-   /*
-   Undoes the last move applied to the board, restoring it to the state it was
-   in prior to the most recent move.
-   */
+   // Undoes the last move applied to the board, restoring it to the state it was
+   // in prior to the most recent move.
    virtual void UndoLastMove();
    
    /*
@@ -67,13 +65,13 @@ public:
 
    // Returns true if the game is finished.
    virtual bool IsFinished() const {
-      return (mValue != 0) || GetMoveCount() == 9;
+      return (m_value_ != 0) || GetMoveCount() == 9;
    }
 
 private:
 	friend class TicTacToeView;
 
    // NOTE: we inherit mNextPlayer, mValue, and mHistory from GameBoard.
-   char mBoard[TTT_BOARD_SIZE][TTT_BOARD_SIZE];
+   char m_board_[TTT_BOARD_SIZE][TTT_BOARD_SIZE];
 };
 #endif

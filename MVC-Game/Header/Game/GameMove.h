@@ -10,23 +10,17 @@ and comparisons.
 */
 class GameMove {
 public:
-   // Virtual destructors are important for class hierarchies. Add a virtual 
-   // destructor to all your classes; the destructor can be empty like this.
+   // Virtual destructors for when object goes out of scope
    virtual ~GameMove() {}
-   /*
-   Assigns a string-formatted value to this GameMove. The string value should
-   be formatted in the same way that operator std::string returns.
-   */
+   
+   //Assigns a string-formatted value to this GameMove. The string value should
+   //be formatted in the same way that operator std::string returns.
    virtual GameMove &operator=(const std::string &) = 0;
 
-   /*
-   Converts the GameMove to a string for output.
-   */
+   //Converts the GameMove to a string for output.
    virtual operator std::string() const = 0;
 
-   /*
-   Compares one GameMove to another, assuming they are of the same derived type.
-   */
+   //Compares one GameMove to another, assuming they are of the same derived type.
    virtual bool Equals(const GameMove &other) const = 0;
 
    /*

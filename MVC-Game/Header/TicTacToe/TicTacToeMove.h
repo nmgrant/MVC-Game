@@ -18,27 +18,24 @@ private:
    move was applied. See spec.
    */
    
-   int mRow, mCol;
+   int m_row_, m_col_;
 
-   // KEEP THESE CONSTRUCTORS PRIVATE.
    // Default constructor
    TicTacToeMove();
-   /*
-   2-parameter constructor: initializes this move with the given 
-   row and column.
-   */
+   // 2-parameter constructor: initializes this move with the given 
+   // row and column.
    TicTacToeMove(int row, int col);
 
 public:
-   static int mOnHeap;
+   static int m_on_heap_;
 
    static void* operator new(std::size_t sz){
-      mOnHeap++;
+      m_on_heap_++;
       return ::operator new(sz);
    }
 
       static void operator delete(void* ptr, std::size_t sz) {
-      mOnHeap--;
+      m_on_heap_--;
       ::operator delete(ptr);
    }
 
@@ -46,14 +43,11 @@ public:
    /*
    This assignment operator takes a string representation of an TicTacToeMove
    and uses it to initialize the move. The string is in the format
-   (r, c); OR is the string "pass". [The user will not enter (-1,-1) to pass
-   anymore.]
+   (r, c)
    */
 	virtual GameMove& operator=(const std::string &);
 
-   /*
-   Compares two TicTacToeMove objects for equality.
-   */
+   // Compares two TicTacToeMove objects for equality.
    virtual bool Equals(const GameMove &other) const;
    
    // Converts the TicTacToeMove into a string representation, one that could be

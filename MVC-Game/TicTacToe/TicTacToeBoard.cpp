@@ -1,18 +1,20 @@
 #include <vector>
 #include "TicTacToeBoard.h"
 
+// Constructor for a TicTacToeBoard and its initial state
 TicTacToeBoard::TicTacToeBoard() : GameBoard() {
 	for (int i = 0; i < TTT_BOARD_SIZE; i++) {
 		for (int j = 0; j < TTT_BOARD_SIZE; j++) {
-			mBoard[i][j] = EMPTY;	
+			m_board_[i][j] = EMPTY;	
 		}
 	}
 }
 
+// Checks if a player has won by checking each condition
 bool TicTacToeBoard::hasWon(int row, int col) {
 	//check for row victory
 	for (int i = 0; i < TTT_BOARD_SIZE; i++) {
-		if (mBoard[row][i] != mNextPlayer) {
+		if (m_board_[row][i] != m_next_player_) {
 				break;
 		}
 		if (i == TTT_BOARD_SIZE - 1) {
@@ -22,7 +24,7 @@ bool TicTacToeBoard::hasWon(int row, int col) {
 	
 	//check for column victory
 	for (int i = 0; i < TTT_BOARD_SIZE; i++) {
-		if (mBoard[i][col] != mNextPlayer) {
+		if (m_board_[i][col] != m_next_player_) {
 			break;
 		}
 		if (i == TTT_BOARD_SIZE - 1) {
@@ -34,7 +36,7 @@ bool TicTacToeBoard::hasWon(int row, int col) {
 	if (row == col) {
 		//diagonal victory
 		for (int i = 0; i < TTT_BOARD_SIZE; i++) {
-			if (mBoard[i][i] != mNextPlayer) {
+			if (m_board_[i][i] != m_next_player_) {
 				break;
 			}
 			if (i == (TTT_BOARD_SIZE - 1)) {
@@ -43,7 +45,7 @@ bool TicTacToeBoard::hasWon(int row, int col) {
 		}
 		//anti-diagonal victory		
 		for (int i = 0; i < TTT_BOARD_SIZE; i++) {
-			if (mBoard[i][(TTT_BOARD_SIZE - 1) - i] != mNextPlayer) {
+			if (m_board_[i][(TTT_BOARD_SIZE - 1) - i] != m_next_player_) {
 				break;
 			}
 			if (i == (TTT_BOARD_SIZE - 1)) {
@@ -55,39 +57,57 @@ bool TicTacToeBoard::hasWon(int row, int col) {
 	return false;
 }
 
+// Applies the user's givne move
 void TicTacToeBoard::ApplyMove(GameMove *move) {
+
+	// Casts the GameMove to TicTacToeMove
 	TicTacToeMove *m = dynamic_cast<TicTacToeMove*>(move);
+
+	// If the move is invalid, throw exception
 	if (m == nullptr) {
 		throw TicTacToeException("Tried to apply a non-TicTacToeMove");
 	}
-	mHistory.push_back(move);
+
+	// Otherwise, put the move into move history
+	m_history_.push_back(move);
 	
-	mBoard[m->mRow][m->mCol] = mNextPlayer;
+	// Set the (row, col) to the player 
+	m_board_[m->m_row_][m->m_col_] = m_next_player_;
 	
-	if (hasWon(m->mRow,m->mCol)) {
-		mValue += mNextPlayer;
+	// Check if the player has won
+	if (hasWon(m->m_row_,m->m_col_)) {
+		m_value_ += m_next_player_;
 	}
 
-	(mNextPlayer == O) ? mNextPlayer = X : mNextPlayer = O;
+	// Change player
+	(m_next_player_ == O) ? m_next_player_ = X : m_next_player_ = O;
 }
 
+// Gets all possible moves by searching for empty spaces
 void TicTacToeBoard::GetPossibleMoves(std::vector<GameMove*> *list) const {
 	for (int i = 0; i < TTT_BOARD_SIZE; i++) {
 		for (int j = 0; j < TTT_BOARD_SIZE; j++) {
-			if (mBoard[i][j] == EMPTY) {
+			if (m_board_[i][j] == EMPTY) {
 				TicTacToeMove *move = dynamic_cast<TicTacToeMove*>(CreateMove());
-				move->mRow = i;
-				move->mCol = j;
+				move->m_row_ = i;
+				move->m_col_ = j;
 				list->push_back(move);
 			}
 		}
 	}
 }
 
+// Undoes the last move
 void TicTacToeBoard::UndoLastMove() {
-	TicTacToeMove *m = dynamic_cast<TicTacToeMove*>(mHistory.back());
-	mBoard[m->mRow][m->mCol] = 0;
-	mNextPlayer = -mNextPlayer;
-	delete mHistory.back();
-	mHistory.pop_back();
+	TicTacToeMove *m = dynamic_cast<TicTacToeMove*>(m_history_.back());
+
+	// Set last move to empty
+	m_board_[m->m_row_][m->m_col_] = 0;
+
+	// Change to previous player
+	m_next_player_ = -m_next_player_;
+
+	// Remove the move from move history
+	delete m_history_.back();
+	m_history_.pop_back();
 }

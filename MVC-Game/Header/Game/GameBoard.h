@@ -7,20 +7,16 @@
 
 class GameBoard {
 public:
-   // WRITE THIS FUNCTION!!!
    virtual ~GameBoard() {
-      // You must write this function so that any moves owned by the game board
-      // are freed from the heap when the board is destructed.
-		for (GameMove *m : mHistory) {
+      // Any moves owned by the game board are freed from the heap when the board is destructed.
+		for (GameMove *m : m_history_) {
 			delete m;
 		}
-		mHistory.clear();
-      // remove the following line once you have finished this function.
-      // This exception is just a reminder to write this function.
+		m_history_.clear();
    }
 
    // Initializes a GameBoard with a NextPlayer of 1, and a Value of 0
-   GameBoard() : mNextPlayer(1), mValue(0) {}
+   GameBoard() : m_next_player_(1), m_value_(0) {}
 
    /*
    Fills in a vector with all possible moves that are valid for the current 
@@ -36,44 +32,33 @@ public:
    */
    virtual void ApplyMove(GameMove *move) = 0;
 
-   /*
-   Undoes the most recent move applied to the board.
-   */
+   // Undoes the most recent move applied to the board.
    virtual void UndoLastMove() = 0;
 
-   /*
-   Creates an appropriate GameMove-derived object representing a "blank" move
-   on this type of board. This object can be assigned to with a string.
-   */
+   // Creates an appropriate GameMove-derived object representing a "blank" move
+   //on this type of board. This object can be assigned to with a string.
    virtual GameMove *CreateMove() const = 0;
    
-   /*
-   Returns true if the game board is "finished", e.g., if one player has won
-   and no more moves should be allowed.
-   */
+   // Returns true if the game board is "finished", e.g., if one player has won
+   // and no more moves should be allowed.
    virtual bool IsFinished() const = 0;
 
-   /*
-   Gets the value of the board indicating who is winning.
-   */
-   inline int GetValue() const {return mValue;}
+   // Gets the value of the board indicating who is winning.
+   inline int GetValue() const {return m_value_;}
 
-   /*
-   Gets the player whose turn it is; that is, which player will the next move
-   belong to?
-   */
-   inline int GetNextPlayer() const {return mNextPlayer;}
+   // Gets the player whose turn it is; that is, which player will the next move
+   // belong to?
+   inline int GetNextPlayer() const {return m_next_player_;}
 
-   /*
-   Gets a vector of all moves applied to this board. The last move in the vector
-   is the most recent move applied to the board.
-   */
+   // Gets a vector of all moves applied to this board. The last move in the vector
+   // is the most recent move applied to the board.
    inline const std::vector<GameMove *>* GetMoveHistory() const {
-      return &mHistory;
+      return &m_history_;
    }
 
+   // Gets number of moves from 
    inline int GetMoveCount() const {
-      return mHistory.size();
+      return m_history_.size();
    }
 
    /*
@@ -86,13 +71,12 @@ public:
    }
 
 protected:
-   /*
-   Every two-player board game needs to keep track of the next player, the 
-   board's value, and the history of moves applied to the board.
-   */
-   char mNextPlayer;
-   int mValue;
-   std::vector<GameMove *> mHistory;
+   
+   // Every two-player board game needs to keep track of the next player, the 
+   // board's value, and the history of moves applied to the board.
+   char m_next_player_;
+   int m_value_;
+   std::vector<GameMove *> m_history_;
 };
 
 #endif

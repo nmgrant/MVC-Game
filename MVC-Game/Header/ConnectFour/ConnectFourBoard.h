@@ -44,10 +44,8 @@ public:
    */
    virtual void ApplyMove(GameMove *move);
    
-   /*
-   Undoes the last move applied to the board, restoring it to the state it was
-   in prior to the most recent move.
-   */
+   // Undoes the last move applied to the board, restoring it to the state it was
+   // in prior to the most recent move.
    virtual void UndoLastMove();
    
    /*
@@ -57,25 +55,28 @@ public:
    */
    virtual GameMove *CreateMove() const {return new ConnectFourMove;}
 
+   // Checks if the move is InBounds
    inline static bool InBounds(int row, int col) {
       return row >= 0 && row < CF_ROWS && col >= 0 && col < CF_COLS;
    }
 
+   // Gets the string representation for the given player
 	virtual std::string GetPlayerString(char player) {
       return (player == 1 ? "Yellow" : "Red");
-   }
+	}
 
+	// Checks if a player has won
 	bool hasWon(int row, int col);
 
    // Returns true if the game is finished.
    virtual bool IsFinished() const {
-      return (mValue != 0) || GetMoveCount() == CF_ROWS * CF_COLS;
+      return (m_value_ != 0) || GetMoveCount() == CF_ROWS * CF_COLS;
    }
 
 private:
 	friend class ConnectFourView;
 
    // NOTE: we inherit mNextPlayer, mValue, and mHistory from GameBoard.
-   char mBoard[CF_ROWS][CF_COLS];
+   char m_board_[CF_ROWS][CF_COLS];
 };
 #endif
